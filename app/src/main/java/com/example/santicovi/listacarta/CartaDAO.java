@@ -13,7 +13,7 @@ import java.util.List;
  * Created by SantiCovi on 04/12/2017.
  */
 
-@DAO
+@Dao
 public interface CartaDAO {
     @Query("select * from carta")
     LiveData<List<Carta>> getCartas();
