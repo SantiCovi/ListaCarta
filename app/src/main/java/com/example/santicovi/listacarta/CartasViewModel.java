@@ -18,21 +18,21 @@ import java.util.List;
 public class CartasViewModel extends AndroidViewModel {
     private final Application app;
     private final AppDatabase appDatabase;
-    private final CartaDao cartaDao;
+    private final CartaDAO cartaDAO;
     private LiveData<List<Carta>> cartas;
 
     public CartasViewModel(Application application) {
         super(application);
         this.app = application;
         this.appDatabase = AppDatabase.getDatabase(this.getApplication());
-        this.cartaDao = appDatabase.getCartaDao();
+        this.cartaDAO = appDatabase.getCartaDAO();
     }
 
     public LiveData<List<Carta>> getCartas(){
         if (cartas == null){
             reload();
         }
-        return cartaDao.getCartas();
+        return cartaDAO.getCartas();
     }
 
     public void reload() {
@@ -52,8 +52,8 @@ public class CartasViewModel extends AndroidViewModel {
 
             Log.d("DEBUG", result.toString());
 
-            cartaDao.deleteCartas();
-            cartaDao.addCartas(result);
+            cartaDAO.deleteCartas();
+            cartaDAO.addCartas(result);
             return result;
         }
     }
