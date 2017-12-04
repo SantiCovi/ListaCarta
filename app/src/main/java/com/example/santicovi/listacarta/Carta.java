@@ -117,6 +117,6 @@ public class Carta implements Serializable {
                 ", toughness='" + toughness + '\'' +
                 ", layout='" + layout + '\'' +
                 ", imagen='" + imagen + '\'' +
-                '}'; //prueba 
+                '}'; //prueba
     }
 }
